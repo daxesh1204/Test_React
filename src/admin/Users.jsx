@@ -44,15 +44,13 @@ export const Users = () => {
 
   const handleDelete = async (id) => {
     try {
-     const res= await axios.delete(`${API_URL}/${id}`);
-     console.log(res.data); 
-     fetchUser();   
+      const res = await axios.delete(`${API_URL}/${id}`);
+      console.log(res.data);
+      fetchUser();
     } catch (error) {
       console.log(error);
     }
   };
-
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,7 +58,7 @@ export const Users = () => {
   };
 
   return (
-    <div>
+    <div className="main">
       <h1>Admin Dashboard</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
@@ -81,7 +79,11 @@ export const Users = () => {
         />
         <br />
         <br />
-        <button>{editUserId === null ? "Add User" : "Update User"}</button>
+        <button
+          style={{ backgroundColor: "green", color: "white", padding: "5px",  width:"20.5rem", height: "2rem"}}
+        >
+          {editUserId === null ? "Add User" : "Update User"}
+        </button>
       </form>
 
       <ul>
@@ -92,8 +94,30 @@ export const Users = () => {
                 {user.name}-{user.email}
               </span>
               <div>
-                <button onClick={() => handleEdit(user)}>Edit</button>
-                <button onClick={() => handleDelete(user.id)}>Delete</button>
+                <button
+                  onClick={() => handleEdit(user)}
+                  style={{
+                    backgroundColor: "yellow",
+                    color: "black",
+                    padding: "5px",
+                    marginRight: "10px",
+                    width:"5rem"
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(user.id)}
+                  style={{
+                    backgroundColor: "red",
+                    color: "black",
+                    padding: "5px",
+                    marginRight: "10px",
+                    width:"5rem"
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             </li>
           );

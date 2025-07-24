@@ -1,11 +1,12 @@
 import { Users } from "./admin/users";
 
-const App=()=>{
-  return(
-    <>
-     <Users/>
-    </>
-  )
-}
+const App = () => {
+
+  return (
+    <div>
+      <Users/>
+    </div>
+  );
+};
 
 export default App;
